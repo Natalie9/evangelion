@@ -1,49 +1,43 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+    <div v-if="evangelion">
+      <q-btn color="purple" label="Posters" @click="toImages"/>
+      <h3>{{ evangelion.title }}</h3>
+      <h5>{{evangelion.originalTitle}}</h5>
+      <img :src="evangelion.image">
+      <p>{{ evangelion.description }}</p>
+      <div v-for="genre in evangelion.genreList" :key="genre.id" class="col">
+        <q-badge outline color="primary" :label="genre.value"/>
+      </div>
+      <span> {{evangelion.plot}}</span>
+    </div>
   </q-page>
 </template>
 
 <script lang="ts">
-import { Todo, Meta } from 'components/models'
-import ExampleComponent from 'components/CompositionComponent.vue'
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
+import axios from 'axios'
 
 export default defineComponent({
   name: 'PageIndex',
-  components: { ExampleComponent },
-  setup () {
-    const todos = ref<Todo[]>([
-      {
-        id: 1,
-        content: 'ct1'
-      },
-      {
-        id: 2,
-        content: 'ct2'
-      },
-      {
-        id: 3,
-        content: 'ct3'
-      },
-      {
-        id: 4,
-        content: 'ct4'
-      },
-      {
-        id: 5,
-        content: 'ct5'
-      }
-    ])
-    const meta = ref<Meta>({
-      totalCount: 1200
-    })
-    return { todos, meta }
+  data () {
+    return {
+      evangelion: {}
+    }
+  },
+  methods: {
+    async getEps () {
+      const response = await axios.get('https://imdb-api.com/en/API/Title/k_oytr4k7n/tt0112159')
+      console.log(response.data)
+      this.evangelion = response.data
+    },
+    toImages () {
+      this.$router.push({ name: 'posters' })
+    }
+  },
+  async created () {
+    await this.getEps()
   }
+
 })
 </script>
