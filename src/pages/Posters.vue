@@ -2,7 +2,7 @@
 <q-page>
   Posters aqui
   <div v-if="posters.keys">
-    <div v-for="poster in posters" >
+    <div v-for="poster in posters" :key="poster.id">
       aaa {{poster}}
       <img :src="poster.image">
     </div>

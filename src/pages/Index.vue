@@ -14,11 +14,10 @@
   </q-page>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script>
 import axios from 'axios'
 
-export default defineComponent({
+export default {
   name: 'PageIndex',
   data () {
     return {
@@ -39,5 +38,5 @@ export default defineComponent({
     await this.getEps()
   }
 
-})
+}
 </script>
