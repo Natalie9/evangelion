@@ -1,7 +1,10 @@
 <template>
-  <q-page class="row items-center justify-evenly">
+  <q-page >
+    <SearchBar></SearchBar>
     <div v-if="evangelion">
+<!--      //buscador de anime, busque pelo nome e veja os eps, atores e etc-->
       <q-btn color="purple" label="Posters" @click="toImages"/>
+      <q-btn color="purple" label="infos" @click="getEps"/>
       <h3>{{ evangelion.title }}</h3>
       <h5>{{evangelion.originalTitle}}</h5>
       <img :src="evangelion.image">
@@ -15,10 +18,12 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { getEvangelionInfos } from '../services'
+import SearchBar from '../components/SearchBar'
 
 export default {
   name: 'PageIndex',
+  components: { SearchBar },
   data () {
     return {
       evangelion: {}
@@ -26,7 +31,7 @@ export default {
   },
   methods: {
     async getEps () {
-      const response = await axios.get('https://imdb-api.com/en/API/Title/k_oytr4k7n/tt0112159')
+      const response = await getEvangelionInfos()
       console.log(response.data)
       this.evangelion = response.data
     },
@@ -35,7 +40,7 @@ export default {
     }
   },
   async created () {
-    await this.getEps()
+    // await this.getEps()
   }
 
 }
