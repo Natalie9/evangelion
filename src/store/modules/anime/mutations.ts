@@ -1,15 +1,9 @@
 import { MutationTree } from 'vuex'
-import Anime from 'src/types/Anime'
+import { Anime } from './types/'
 
 const mutation: MutationTree<Anime> = {
-  changeName (state, name) {
-    // state.STATE_ANIME.name = name
-  },
-  someMutation (/* state: ExampleStateInterface */) {
-    // your code
-  },
   setAnime (state, anime) {
-    // state.STATE_ANIME = anime
+    state.STATE_ANIME_INFO = anime
   }
 }
 

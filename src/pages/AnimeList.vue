@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'AnimeList',
@@ -39,9 +39,12 @@ export default {
     ...mapState('animes', ['animesList'])
   },
   methods: {
-    openAnime (id) {
+    async openAnime (id) {
       console.log(id)
-    }
+      await this.getAnime(id)
+      this.$router.push({ name: 'anime' })
+    },
+    ...mapActions('anime', ['getAnime'])
   }
 }
 </script>

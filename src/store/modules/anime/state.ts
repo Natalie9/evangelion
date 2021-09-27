@@ -1,31 +1,33 @@
-import Anime from 'src/types/Anime'
+import { Anime } from './types'
 
 function state (): Anime {
   return {
-    images: [],
-    languages: '',
-    originalTitle: '',
-    plot: '',
-    releaseDate: '',
-    runtimeMins: '',
-    runtimeStr: '',
-    similars: [],
-    starList: [],
-    stars: '',
-    tagline: '',
-    type: '',
-    year: '',
-    genreList: [],
-    keywordList: [],
-    keywords: '',
-    actorList: [],
-    fullTitle: '',
-    genres: '',
-    id: '',
-    imDbRating: 0,
-    image: '',
-    name: 'Meu anime',
-    title: ''
+    STATE_ANIME_INFO: {
+      images: [],
+      languages: '',
+      originalTitle: '',
+      plot: '',
+      releaseDate: '',
+      runtimeMins: '',
+      runtimeStr: '',
+      similars: [],
+      starList: [],
+      stars: '',
+      tagline: '',
+      type: '',
+      year: '',
+      genreList: [],
+      keywordList: [],
+      keywords: '',
+      actorList: [],
+      fullTitle: '',
+      genres: '',
+      id: '',
+      imDbRating: 0,
+      image: '',
+      title: ''
+    }
+
   }
 }
 

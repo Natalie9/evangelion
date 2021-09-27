@@ -1,10 +1,13 @@
 import { ActionTree } from 'vuex'
 import { StateInterface } from '../../index'
-import Anime from 'src/types/Anime'
+import { Anime } from './types/'
+import { getAnime } from 'src/services'
 
 const actions: ActionTree<Anime, StateInterface> = {
-  searchTerm ({ commit }, searchedTerm) {
-    console.log(searchedTerm, commit)
+  async getAnime ({ commit }, idAnime) {
+    const response = await getAnime(idAnime)
+    commit('setAnime', response.data)
+    console.log(response)
   }
 }
 

@@ -1,7 +1,7 @@
 import { Module } from 'vuex'
 import { StateInterface } from '../../index'
 import state from './state'
-import Anime from 'src/types/Anime'
+import { Anime } from './types/'
 import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'

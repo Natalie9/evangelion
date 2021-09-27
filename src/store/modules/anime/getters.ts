@@ -1,6 +1,6 @@
 import { GetterTree } from 'vuex'
 import { StateInterface } from '../../index'
-import Anime from 'src/types/Anime'
+import { Anime } from './types/'
 
 const getters: GetterTree<Anime, StateInterface> = {
   uppercaseName (state) {
