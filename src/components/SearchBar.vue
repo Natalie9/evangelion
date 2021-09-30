@@ -1,11 +1,10 @@
 <template>
-  <section style="width: 100%;">
-    <q-input v-model="searchedTerm" dark label="Busque por seu anime preferido" @keypress.enter="searchTermHandler" color="yellow-4">
+  <section>
+    <q-input rounded filled v-model="searchedTerm" dark label="Busque por seu anime preferido" @keypress.enter="searchTermHandler" color="yellow-4">
       <template v-slot:append>
         <q-icon name="search" @click="searchTermHandler"/>
       </template>
     </q-input>
-
   </section>
 </template>
 
