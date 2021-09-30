@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const APIKEY = 'k_oytr4k7n/'
+const APIKEY = 'k_hp2e4rfb/'
 const URLBASE = 'https://imdb-api.com/en/API/'
 
 export async function getEvangelionInfos () {

@@ -2,9 +2,12 @@
   <q-layout view="lHh Lpr lFf">
     <q-header class="bg-black">
 
-      <q-toolbar class="justify-center q-py-lg">
+      <q-toolbar class="justify-around q-py-lg">
+        <q-btn @click="$router.push({path: '/'})">
+          <q-icon name="live_tv" size="lg" color="amber-12"/>
+        </q-btn>
 
-          <SearchBar class="col-8"></SearchBar>
+        <SearchBar class="col-8"></SearchBar>
 
       </q-toolbar>
     </q-header>

@@ -22,12 +22,12 @@ export default {
   },
   methods: {
     async searchTermHandler () {
+      await this.$router.push({ path: '/' })
       Loading.show({
         spinner: QSpinnerGrid,
         spinnerColor: 'yellow',
         spinnerSize: 140,
         backgroundColor: 'black',
-        message: 'Buscando seu anime favorito',
         messageColor: 'white'
       })
       await this.searchTerm(this.searchedTerm)
