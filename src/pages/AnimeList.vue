@@ -1,31 +1,29 @@
 <template>
   <QPage>
-    <QHeader>Lista de animes</QHeader>
+    <span class="text-h4" v-if="!animesList?.length">Busque por seu anime favorito!</span>
 
-    <section v-if="animesList.length">
+    <section v-else>
 
-      <div v-for="anime of animesList" :key="anime.id">
-        <q-card class="my-card" flat bordered>
-          <q-img
-            width="300px"
-            :src="anime.image"
-          />
+      <q-page-container class="row inline justify-around">
+        <div v-for="anime of animesList" :key="anime.id">
+          <q-card class="anime-list__card" flat @click="openAnime(anime.id)">
+            <q-img
+              class="anime-list__card__image"
+              :src="anime.image"
+            />
 
-          <q-card-section>
-            <div class="text-h5 q-mt-sm q-mb-xs">{{ anime.title }}</div>
-            <div class="text-caption text-grey">
-              {{ anime.description }}
-            </div>
-          </q-card-section>
+            <q-card-section>
+              <q-separator></q-separator>
+              <div class="text-h5 q-mt-sm q-mb-xs">{{ anime.title }}</div>
+              <div class="text-caption text-grey">
+                {{ anime.description }}
+              </div>
+            </q-card-section>
 
-          <q-card-actions>
-            <q-btn color="dark" label="More" @click="openAnime(anime.id)"/>
+          </q-card>
+        </div>
 
-          </q-card-actions>
-
-        </q-card>
-
-      </div>
+      </q-page-container>
     </section>
   </QPage>
 </template>
@@ -35,8 +33,10 @@ import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'AnimeList',
+
   computed: {
     ...mapState('animes', ['animesList'])
+
   },
   methods: {
     async openAnime (id) {
@@ -49,8 +49,13 @@ export default {
 }
 </script>
 
-<style scoped>
-.my-card {
-  max-width: 350px;
+<style scoped lang="scss">
+.anime-list__card {
+  cursor: pointer;
+  width: 300px;
+
+  &__image{
+    min-height: 500px
+  }
 }
 </style>

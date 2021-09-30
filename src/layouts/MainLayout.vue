@@ -1,6 +1,10 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <SearchBar></SearchBar>
+    <q-header  class="bg-black">
+      <q-toolbar>
+      <SearchBar></SearchBar>
+      </q-toolbar>
+    </q-header>
     <q-page-container>
       <router-view/>
     </q-page-container>

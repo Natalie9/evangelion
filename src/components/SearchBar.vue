@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <q-input v-model="searchedTerm" label="Busque por seu anime preferido" @keypress.enter="searchTermHandler">
+  <section style="width: 100%;">
+    <q-input v-model="searchedTerm" dark label="Busque por seu anime preferido" @keypress.enter="searchTermHandler" color="yellow-4">
       <template v-slot:append>
         <q-icon name="search" @click="searchTermHandler"/>
       </template>
@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { Loading, QSpinnerGrid } from 'quasar'
+
 import { mapActions } from 'vuex'
 
 export default {
@@ -21,6 +23,14 @@ export default {
   },
   methods: {
     async searchTermHandler () {
+      Loading.show({
+        spinner: QSpinnerGrid,
+        spinnerColor: 'yellow',
+        spinnerSize: 140,
+        backgroundColor: 'black',
+        message: 'Buscando seu anime favorito',
+        messageColor: 'white'
+      })
       await this.searchTerm(this.searchedTerm)
     },
     ...mapActions('animes', ['searchTerm'])
