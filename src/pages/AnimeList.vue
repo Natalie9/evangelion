@@ -1,8 +1,7 @@
 <template>
   <q-page>
 
-    <span class="text-h4" v-if="!animesList?.length">
-
+    <span class="text-h4 text-center full-width" v-if="!animesList?.length">
       <p>
         Busque por seu anime favorito!
       </p>
@@ -10,7 +9,7 @@
 
     <section v-else>
 
-      <q-page-container class="row inline justify-around">
+      <q-page class="row inline justify-around">
         <div v-for="anime of animesList" :key="anime.id">
           <q-card class="anime-list__card" flat @click="openAnime(anime.id)">
             <q-img
@@ -30,7 +29,7 @@
           </q-card>
         </div>
 
-      </q-page-container>
+      </q-page>
     </section>
   </q-page>
 </template>

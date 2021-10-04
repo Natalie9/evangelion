@@ -1,6 +1,6 @@
 <template>
   <q-page class="bg-grey-10 text-grey-2">
-    <div class="row inline-xs q-pa-lg">
+    <div class="row inline-xs q-pa-md">
       <div class="justify-center row">
 
         <q-img :src="anime.image" width="400px"/>
@@ -47,10 +47,7 @@ import { mapState } from 'vuex'
 export default {
   name: 'AnimeInfo',
   computed: {
-    ...mapState('anime', { anime: 'STATE_ANIME_INFO' }),
-    actorsList () {
-      return this.$q.platform.is.desktop
-    }
+    ...mapState('anime', { anime: 'STATE_ANIME_INFO' })
   },
   mounted () {
     console.log(this.anime)
